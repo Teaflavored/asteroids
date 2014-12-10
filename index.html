@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html style="background:black; z-index: -50">
   <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="./lib/kinetic-v5.1.0.min.js"></script>
     <script src="./lib/keymaster.js"></script>
     <script src="./lib/utils.js"></script>
@@ -22,18 +23,15 @@
     </style>
   </head>
   <body>
-    <canvas width="700" height="700" id="canvas"></canvas>
-    <div> WASD to move around, space to shoot </div>
+    <canvas width="1100" height="700" id="canvas" style="border:1px solid white;"></canvas>
+    <div style="color:#fff;"> WASD to move around, space to shoot </div>
     <script>
       var canvas = document.getElementById("canvas");
       var context = canvas.getContext('2d');
       var game = new Asteroids.Game();
       var gameview = new Asteroids.GameView(game, context);
       var img = new Image();
-      img.onload = function () {
-        context.drawImage(img,0,0, 1000, 850);
-      };
-      img.src = './lib/myImage.png';
+
       gameview.start();
     </script>
   </body>
