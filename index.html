@@ -12,25 +12,48 @@
     <script src="./lib/game.js"></script>
     <script src="./lib/gameView.js"></script>
     <style>
+      body{
+        position:relative;
+      }
       canvas {
         display: block;
         margin-left:auto;
         margin-right:auto;
+        position:relative;
       }
       div{
         text-align:center;
       }
+
+      div#score-board{
+        color:#fff;
+        font-size:1.9em;
+        z-index:3;
+        position:absolute;
+        top:10px;
+        text-align:center;
+        width:100%;
+      }
     </style>
   </head>
   <body>
-    <canvas width="1100" height="700" id="canvas" style="border:1px solid white;"></canvas>
+    <canvas width="1100" height="700" id="canvas" style="border:1px solid white;">
+
+    </canvas>
+    <div id="score-board">
+      Asteroids Shot Down: 0
+    </div>
+
     <div style="color:#fff;"> WASD to move around, space to shoot </div>
+
     <script>
       var canvas = document.getElementById("canvas");
       var context = canvas.getContext('2d');
+      var scoreBoard = document.getElementById("score-board");
       var game = new Asteroids.Game();
       var gameview = new Asteroids.GameView(game, context);
       var img = new Image();
+
 
       gameview.start();
     </script>
